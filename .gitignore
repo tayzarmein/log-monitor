@@ -1,6 +1,7 @@
 .venv/
 .vscode/
 db.sqlite3
+/tempfiles/
 
 # from django docs
 *.egg-info
