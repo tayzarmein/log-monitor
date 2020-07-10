@@ -2,6 +2,8 @@
 .vscode/
 db.sqlite3
 /tempfiles/
+/gclogs/
+/logfiles/
 
 # from django docs
 *.egg-info
