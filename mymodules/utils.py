@@ -102,7 +102,7 @@ def parseLog(filename):
 
         # Search for CMS-concurrent-abortable-preclean
         if re.search("CMS-concurrent-abortable-preclean:", eachLine):
-            stringtime = re.search("(.+?)\+", eachLine).group(1)
+            stringtime = re.search("(\d\d\d\d.+?)\+", eachLine).group(1)
             logList.append({
                 "time": datetime.strptime(stringtime, "%Y-%m-%dT%H:%M:%S.%f"),
                 "logtype": "CMS-concurrent-abortable-preclean"

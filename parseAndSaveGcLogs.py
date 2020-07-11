@@ -91,7 +91,7 @@ if(fileList):
             for eachLog in logList:
                 # second check for duplicate entry
                 sqlstatment = "SELECT id FROM gclog WHERE datetime='" + eachLog["time"].strftime(
-                    '%Y-%m-%d %H:%M:%S') + "' AND miliseconds='" + str(int(eachLog["time"].microsecond / 1000)) + "'AND logtype='" + eachLog["logtype"] + "'"
+                    '%Y-%m-%d %H:%M:%S.%f')[:-3] + "'AND logtype='" + eachLog["logtype"] + "'"
                 mycursor.execute(sqlstatment)
                 if(len(mycursor.fetchall()) == 0):
                     # save new gen log
