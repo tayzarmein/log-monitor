@@ -9,8 +9,7 @@
   margin: 2px;
 }
 
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
+.graph-btn {
+  margin-left: 2px;
+  margin-right: 2px;
 }
