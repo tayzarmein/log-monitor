@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>Status of Java Memory</h1>
       <p>Enter Range:</p>
       <DateTimePicker value={startDateTime} onChange={(v) => setStartDateTime(v)}/>
       <DateTimePicker value={endDateTime} onChange={(v) => setEndDateTime(v)}/>
@@ -41,6 +41,11 @@ function App() {
         setEndDateTime(new Date());
         setStartDateTime(sub(new Date(), {weeks: 1}));
       }}>Reset</button>
+
+      <button onClick={() => setOneDay()}>1 Day</button>
+      <button onClick={() => setOneWeek()}>1 Week</button>
+      <button onClick={() => setOneMonth()}>1 Month</button>
+      <button>Live</button>
 
       <p>
         <button
@@ -81,6 +86,24 @@ function App() {
       default:
         break;
     }
+  }
+
+  function setOneDay() {
+    let now = new Date();
+    setEndDateTime(now);
+    setStartDateTime(sub(now, {days: 1}))
+  }
+
+  function setOneWeek() {
+    let now = new Date();
+    setEndDateTime(now);
+    setStartDateTime(sub(now, {weeks: 1}))
+  }
+
+  function setOneMonth() {
+    let now = new Date();
+    setEndDateTime(now);
+    setStartDateTime(sub(now, {months: 1}))
   }
 
 }
