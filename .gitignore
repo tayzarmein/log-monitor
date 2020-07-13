@@ -4,6 +4,7 @@ db.sqlite3
 /tempfiles/
 /gclogs/
 /logfiles/
+logmonitor_django_backend/database.cnf
 
 # from django docs
 *.egg-info

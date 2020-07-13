@@ -1,0 +1,5 @@
+[client]
+database = gclog_db
+user = gclog
+password = tAWuxfMrDy9MHDQa
+default-character-set = utf8

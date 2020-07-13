@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import OldGenGraph from "./OldGenGraph";
 import DateTimePicker from 'react-datetime-picker';
-import { sub } from 'date-fns';
+import { sub, format } from 'date-fns';
+import Axios from 'axios';
 import gclog from './gclog.json';
 
 
@@ -21,11 +22,23 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setData(gclog);
+    Axios.get('api/gclogs', {
+      params: {
+        startdatetime: format(startDateTime, "yyyy-MM-dd'T'HH:mm:ss'Z'"),
+        enddatetime: format(endDateTime, "yyyy-MM-dd'T'HH:mm:ss'Z'")
+      }
+    }).then((r) => {
+      console.log("fetch succeeded. data= ", r.data);
+      setData(r.data);
       setDataState("ready");
-      }, 1000);
-  }, [])
+    }).catch((e) => {
+      console.log("Error when fetching error=", e);
+    })
+    // setTimeout(() => {
+    //   setData(gclog);
+    //   setDataState("ready");
+    //   }, 1000);
+  }, [startDateTime, endDateTime])
 
   if (dataState === 'loading') {
     return <h2>Loading</h2>
